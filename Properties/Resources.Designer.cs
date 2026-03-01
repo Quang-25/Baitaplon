@@ -63,6 +63,16 @@ namespace Quanlybanhang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anh_viet_nam_11 {
+            get {
+                object obj = ResourceManager.GetObject("anh viet nam 11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap anhlogo {
             get {
                 object obj = ResourceManager.GetObject("anhlogo", resourceCulture);
