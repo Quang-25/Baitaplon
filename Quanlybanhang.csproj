@@ -52,6 +52,42 @@
     <Compile Include="Dangnhapadmin.Designer.cs">
       <DependentUpon>Dangnhapadmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Danhmucdon\Chitiethoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmucdon\Chitiethoadon.Designer.cs">
+      <DependentUpon>Chitiethoadon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmuchoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmuchoadon.Designer.cs">
+      <DependentUpon>Danhmuchoadon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmuckhachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmuckhachhang.Designer.cs">
+      <DependentUpon>Danhmuckhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmucnhanvien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmucnhanvien.Designer.cs">
+      <DependentUpon>Danhmucnhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmucsanpham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmucsanpham.Designer.cs">
+      <DependentUpon>Danhmucsanpham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmucthanhpho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmucdon\Danhmucthanhpho.Designer.cs">
+      <DependentUpon>Danhmucthanhpho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +102,24 @@
     <Compile Include="Đăng nhập.Designer.cs">
       <DependentUpon>Đăng nhập.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Danhmucdon\Chitiethoadon.resx">
+      <DependentUpon>Chitiethoadon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmucdon\Danhmuchoadon.resx">
+      <DependentUpon>Danhmuchoadon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmucdon\Danhmuckhachhang.resx">
+      <DependentUpon>Danhmuckhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmucdon\Danhmucnhanvien.resx">
+      <DependentUpon>Danhmucnhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmucdon\Danhmucsanpham.resx">
+      <DependentUpon>Danhmucsanpham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmucdon\Danhmucthanhpho.resx">
+      <DependentUpon>Danhmucthanhpho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\anquanlybanhang3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh viet nam 11.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
