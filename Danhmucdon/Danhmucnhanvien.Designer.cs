@@ -280,6 +280,7 @@
             // 
             // dgvnhanvien
             // 
+            this.dgvnhanvien.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvnhanvien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvnhanvien.Location = new System.Drawing.Point(103, 362);
             this.dgvnhanvien.Name = "dgvnhanvien";
@@ -336,6 +337,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Danhmucnhanvien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danhmucnhanvien";
             this.Load += new System.EventHandler(this.Danhmucnhanvien_Load);
             this.panel1.ResumeLayout(false);
