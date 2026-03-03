@@ -63,6 +63,16 @@ namespace Quanlybanhang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anh_viet_nam_11 {
+            get {
+                object obj = ResourceManager.GetObject("anh viet nam 11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap anhlogo {
             get {
                 object obj = ResourceManager.GetObject("anhlogo", resourceCulture);
@@ -83,9 +93,15 @@ namespace Quanlybanhang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap Hoadon {
             get {
                 object obj = ResourceManager.GetObject("Hoadon", resourceCulture);
+=======
+        internal static System.Drawing.Bitmap quanlybanhang {
+            get {
+                object obj = ResourceManager.GetObject("quanlybanhang", resourceCulture);
+>>>>>>> 41ad96c90bb8aa3a66953f0e6fb9f74dd2247d3f
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
