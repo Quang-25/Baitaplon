@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Quanlybanhang.Danhmucdon;
+using Quanlybanhang.Danhmuctheonhom;
 
 namespace Quanlybanhang
 {
@@ -73,6 +74,46 @@ namespace Quanlybanhang
             Danhmucnhanvien nhanvien = new Danhmucnhanvien();
             this.Hide();
             nhanvien.ShowDialog();
+            this.Show();
+        }
+
+        private void kháchHàngTheoThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmKhachtheoTP f = new frmKhachtheoTP();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void hóaĐơnTheoKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonTheoKH f = new frmHoaDonTheoKH();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void hóaĐơnTheoSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonTheoSP f = new frmHoaDonTheoSP();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void hóaĐơnTheoNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonTheoNV f = new frmHoaDonTheoNV();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void chiTiếtHóaĐơnTheoNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChiTietTheoNV f = new frmChiTietTheoNV();
+            this.Hide();
+            f.ShowDialog();
             this.Show();
         }
     }
