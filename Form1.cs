@@ -9,12 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Quanlybanhang.giupdo;
 using Quanlybanhang.Danhmucdon;
-<<<<<<< HEAD
 using Quanlybanhang.Xemdanhmuc;
-
-=======
 using Quanlybanhang.Danhmuctheonhom;
->>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
+
 
 namespace Quanlybanhang
 {
@@ -83,7 +80,6 @@ namespace Quanlybanhang
             this.Show();
         }
 
-<<<<<<< HEAD
         private void danhMụcThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ThanhPho thanhpho = new ThanhPho();
@@ -154,7 +150,6 @@ namespace Quanlybanhang
             Tacgia frm = new Tacgia();
             frm.ShowDialog();
         }
-=======
         private void kháchHàngTheoThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKhachtheoTP f = new frmKhachtheoTP();
@@ -194,6 +189,62 @@ namespace Quanlybanhang
             f.ShowDialog();
             this.Show();
         }
->>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
+        private void dangNhapAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (DangNhapAdmin frm = new DangNhapAdmin())
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    cauHinhHeThongToolStripMenuItem.Visible = true;
+                    dangNhapAdminToolStripMenuItem.Text = $"Admin: {DangNhapAdmin.AdminName}";
+                    dangNhapAdminToolStripMenuItem.Enabled = false;
+
+                    MessageBox.Show("Đăng nhập Admin thành công!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void cauHinhHeThongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!DangNhapAdmin.IsAdmin)
+            {
+                MessageBox.Show("Bạn cần đăng nhập Admin để sử dụng chức năng này!",
+                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Mở form cấu hình hệ thống (đã xóa phần đổi mật khẩu)
+            // Mở form cấu hình hệ thống
+            CauHinhHeThong frm = new CauHinhHeThong();
+            frm.ShowDialog();
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Chỉ Admin mới được đổi mật khẩu
+            if (!DangNhapAdmin.IsAdmin)
+            {
+                MessageBox.Show("Chỉ Admin mới có quyền đổi mật khẩu!",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Mở form đổi mật khẩu
+            DoiMatKhau frm = new DoiMatKhau();
+             frm.ShowDialog();
+            
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Bạn có chắc muốn thoát ứng dụng?",
+                "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (rs == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

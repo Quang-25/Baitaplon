@@ -8,9 +8,7 @@ public class DBConnect
     public DBConnect()
     {
         conn = new SqlConnection(
-            @"Data Source=PHAMVANTRUONG\VANTRUONG;
-              Initial Catalog=quanlybanhang;
-              Integrated Security=True");
+          @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True");
     }
 
     public DataTable GetData(string sql)

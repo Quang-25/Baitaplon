@@ -47,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dangnhapadmin.cs">
+    <Compile Include="dangnhap\CauHinhHeThong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dangnhapadmin.Designer.cs">
-      <DependentUpon>Dangnhapadmin.cs</DependentUpon>
+    <Compile Include="dangnhap\CauHinhHeThong.Designer.cs">
+      <DependentUpon>CauHinhHeThong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dangnhap\DangNhapAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dangnhap\DangNhapAdmin.Designer.cs">
+      <DependentUpon>DangNhapAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dangnhap\DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dangnhap\DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="Danhmucdon\Chitiethoadon.cs">
       <SubType>Form</SubType>
@@ -146,12 +158,21 @@
     <Compile Include="Xemdanhmuc\ThanhPho.Designer.cs">
       <DependentUpon>ThanhPho.cs</DependentUpon>
     </Compile>
-    <Compile Include="Đăng nhập.cs">
+    <Compile Include="dangnhap\Đăng nhập.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Đăng nhập.Designer.cs">
+    <Compile Include="dangnhap\Đăng nhập.Designer.cs">
       <DependentUpon>Đăng nhập.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="dangnhap\CauHinhHeThong.resx">
+      <DependentUpon>CauHinhHeThong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dangnhap\DangNhapAdmin.resx">
+      <DependentUpon>DangNhapAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dangnhap\DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Danhmucdon\Chitiethoadon.resx">
       <DependentUpon>Chitiethoadon.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,7 +228,7 @@
     <EmbeddedResource Include="Xemdanhmuc\ThanhPho.resx">
       <DependentUpon>ThanhPho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Đăng nhập.resx">
+    <EmbeddedResource Include="dangnhap\Đăng nhập.resx">
       <DependentUpon>Đăng nhập.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

@@ -47,10 +47,7 @@
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_thoat = new System.Windows.Forms.Button();
             this.dgvsanpham = new System.Windows.Forms.DataGridView();
-<<<<<<< HEAD
-=======
             this.btn_chonanh = new System.Windows.Forms.Button();
->>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Hinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).BeginInit();
@@ -77,12 +74,9 @@
             // 
             this.pic_Hinh.Location = new System.Drawing.Point(525, 52);
             this.pic_Hinh.Name = "pic_Hinh";
-<<<<<<< HEAD
             this.pic_Hinh.Size = new System.Drawing.Size(180, 112);
-=======
             this.pic_Hinh.Size = new System.Drawing.Size(192, 112);
             this.pic_Hinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
->>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
             this.pic_Hinh.TabIndex = 11;
             this.pic_Hinh.TabStop = false;
             // 
@@ -256,8 +250,6 @@
             this.dgvsanpham.Size = new System.Drawing.Size(839, 217);
             this.dgvsanpham.TabIndex = 12;
             // 
-<<<<<<< HEAD
-=======
             // btn_chonanh
             // 
             this.btn_chonanh.Location = new System.Drawing.Point(716, 188);
@@ -268,7 +260,6 @@
             this.btn_chonanh.UseVisualStyleBackColor = true;
             this.btn_chonanh.Click += new System.EventHandler(this.btn_chonanh_Click);
             // 
->>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
             // Danhmucsanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
