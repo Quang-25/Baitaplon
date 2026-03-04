@@ -13,7 +13,7 @@ namespace Quanlybanhang
 {
     public partial class CauHinhHeThong : Form
     {
-        string ketnoi = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=quanlybanhang;Integrated Security=True";
+        string ketnoi = @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
 
         public CauHinhHeThong()
         {
