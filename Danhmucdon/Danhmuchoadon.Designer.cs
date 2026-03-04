@@ -31,9 +31,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_manv = new System.Windows.Forms.TextBox();
+            this.txt_khachhang = new System.Windows.Forms.TextBox();
+            this.txt_mahoadon = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,21 +43,21 @@
             this.btn_them = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_thoat = new System.Windows.Forms.Button();
-            this.dgvsanpham = new System.Windows.Forms.DataGridView();
+            this.dgv_hoadon = new System.Windows.Forms.DataGridView();
+            this.btn_huybo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_manv);
+            this.panel1.Controls.Add(this.txt_khachhang);
+            this.panel1.Controls.Add(this.txt_mahoadon);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -84,26 +84,26 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(311, 27);
             this.dateTimePicker1.TabIndex = 14;
             // 
-            // textBox3
+            // txt_manv
             // 
-            this.textBox3.Location = new System.Drawing.Point(142, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(168, 22);
-            this.textBox3.TabIndex = 11;
+            this.txt_manv.Location = new System.Drawing.Point(142, 117);
+            this.txt_manv.Name = "txt_manv";
+            this.txt_manv.Size = new System.Drawing.Size(168, 22);
+            this.txt_manv.TabIndex = 11;
             // 
-            // textBox2
+            // txt_khachhang
             // 
-            this.textBox2.Location = new System.Drawing.Point(142, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 22);
-            this.textBox2.TabIndex = 10;
+            this.txt_khachhang.Location = new System.Drawing.Point(142, 63);
+            this.txt_khachhang.Name = "txt_khachhang";
+            this.txt_khachhang.Size = new System.Drawing.Size(168, 22);
+            this.txt_khachhang.TabIndex = 10;
             // 
-            // textBox1
+            // txt_mahoadon
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 22);
-            this.textBox1.TabIndex = 9;
+            this.txt_mahoadon.Location = new System.Drawing.Point(119, 7);
+            this.txt_mahoadon.Name = "txt_mahoadon";
+            this.txt_mahoadon.Size = new System.Drawing.Size(168, 22);
+            this.txt_mahoadon.TabIndex = 9;
             // 
             // label3
             // 
@@ -164,6 +164,7 @@
             this.btn_reload.TabIndex = 5;
             this.btn_reload.Text = "Reload";
             this.btn_reload.UseVisualStyleBackColor = true;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // btn_them
             // 
@@ -173,6 +174,7 @@
             this.btn_them.TabIndex = 6;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // btn_sua
             // 
@@ -182,6 +184,7 @@
             this.btn_sua.TabIndex = 7;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_luu
             // 
@@ -192,26 +195,18 @@
             this.btn_luu.TabIndex = 8;
             this.btn_luu.Text = "Lưu";
             this.btn_luu.UseVisualStyleBackColor = true;
+            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
-            // button2
+            // btn_xoa
             // 
-            this.button2.Location = new System.Drawing.Point(344, 250);
-            this.button2.Name = "button2";
-            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button2.Size = new System.Drawing.Size(95, 56);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Hủy bỏ";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(587, 250);
-            this.button3.Name = "button3";
-            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(92, 56);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_xoa.Location = new System.Drawing.Point(587, 250);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_xoa.Size = new System.Drawing.Size(92, 56);
+            this.btn_xoa.TabIndex = 10;
+            this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_thoat
             // 
@@ -221,26 +216,37 @@
             this.btn_thoat.TabIndex = 12;
             this.btn_thoat.Text = "Thoát";
             this.btn_thoat.UseVisualStyleBackColor = true;
+            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
             // 
-            // dgvsanpham
+            // dgv_hoadon
             // 
-            this.dgvsanpham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvsanpham.Location = new System.Drawing.Point(12, 312);
-            this.dgvsanpham.Name = "dgvsanpham";
-            this.dgvsanpham.RowHeadersWidth = 51;
-            this.dgvsanpham.RowTemplate.Height = 24;
-            this.dgvsanpham.Size = new System.Drawing.Size(877, 269);
-            this.dgvsanpham.TabIndex = 13;
+            this.dgv_hoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_hoadon.Location = new System.Drawing.Point(165, 312);
+            this.dgv_hoadon.Name = "dgv_hoadon";
+            this.dgv_hoadon.RowHeadersWidth = 51;
+            this.dgv_hoadon.RowTemplate.Height = 24;
+            this.dgv_hoadon.Size = new System.Drawing.Size(562, 256);
+            this.dgv_hoadon.TabIndex = 13;
+            // 
+            // btn_huybo
+            // 
+            this.btn_huybo.Location = new System.Drawing.Point(344, 250);
+            this.btn_huybo.Name = "btn_huybo";
+            this.btn_huybo.Size = new System.Drawing.Size(95, 56);
+            this.btn_huybo.TabIndex = 14;
+            this.btn_huybo.Text = "Hủy bỏ";
+            this.btn_huybo.UseVisualStyleBackColor = true;
+            this.btn_huybo.Click += new System.EventHandler(this.btn_huybo_Click);
             // 
             // Danhmuchoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 597);
-            this.Controls.Add(this.dgvsanpham);
+            this.Controls.Add(this.btn_huybo);
+            this.Controls.Add(this.dgv_hoadon);
             this.Controls.Add(this.btn_thoat);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_xoa);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.btn_them);
@@ -248,9 +254,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "Danhmuchoadon";
             this.Text = "Danhmuchoadon";
+            this.Load += new System.EventHandler(this.Danhmuchoadon_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -261,9 +268,9 @@
         private System.Windows.Forms.Label lbl_masp;
         private System.Windows.Forms.Label lbl_makh;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_manv;
+        private System.Windows.Forms.TextBox txt_khachhang;
+        private System.Windows.Forms.TextBox txt_mahoadon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
@@ -272,9 +279,9 @@
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.Button btn_luu;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_thoat;
-        private System.Windows.Forms.DataGridView dgvsanpham;
+        private System.Windows.Forms.DataGridView dgv_hoadon;
+        private System.Windows.Forms.Button btn_huybo;
     }
 }

@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Quanlybanhang</RootNamespace>
     <AssemblyName>Quanlybanhang</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -88,6 +89,37 @@
     <Compile Include="Danhmucdon\Danhmucthanhpho.Designer.cs">
       <DependentUpon>Danhmucthanhpho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Danhmuctheonhom\frmChiTietTheoNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmChiTietTheoNV.Designer.cs">
+      <DependentUpon>frmChiTietTheoNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmHoaDonTheoKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmHoaDonTheoKH.Designer.cs">
+      <DependentUpon>frmHoaDonTheoKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmHoaDonTheoNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmHoaDonTheoNV.Designer.cs">
+      <DependentUpon>frmHoaDonTheoNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmHoaDonTheoSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmHoaDonTheoSP.Designer.cs">
+      <DependentUpon>frmHoaDonTheoSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmKhachtheoTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhmuctheonhom\frmKhachtheoTP.Designer.cs">
+      <DependentUpon>frmKhachtheoTP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DBConnect.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +170,21 @@
     <EmbeddedResource Include="Danhmucdon\Danhmucthanhpho.resx">
       <DependentUpon>Danhmucthanhpho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Danhmuctheonhom\frmChiTietTheoNV.resx">
+      <DependentUpon>frmChiTietTheoNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmuctheonhom\frmHoaDonTheoKH.resx">
+      <DependentUpon>frmHoaDonTheoKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmuctheonhom\frmHoaDonTheoNV.resx">
+      <DependentUpon>frmHoaDonTheoNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmuctheonhom\frmHoaDonTheoSP.resx">
+      <DependentUpon>frmHoaDonTheoSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhmuctheonhom\frmKhachtheoTP.resx">
+      <DependentUpon>frmKhachtheoTP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\anh viet nam 11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quanlybanhang.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
