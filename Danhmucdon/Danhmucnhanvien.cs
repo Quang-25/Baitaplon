@@ -1,9 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +57,7 @@ namespace Quanlybanhang.Danhmucdon
 
             }
         }
+
         public Danhmucnhanvien()
         {
             InitializeComponent();
@@ -93,7 +96,39 @@ namespace Quanlybanhang.Danhmucdon
 
 
         }
+        void LoadImageFromGrid()
+        {
+            if (dgvnhanvien.CurrentRow == null) return;
 
+            string imagePath = dgvnhanvien.CurrentRow.Cells["Hinh"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(imagePath))
+            {
+                pic_nv.Image = null;
+                return;
+            }
+
+            string fullPath;
+
+            // Nếu DB đã lưu dạng Images\abc.jpg
+            if (imagePath.StartsWith("Images"))
+                fullPath = Path.Combine(Application.StartupPath, imagePath);
+            else
+                fullPath = Path.Combine(Application.StartupPath, "Images", imagePath);
+
+            if (File.Exists(fullPath))
+            {
+                using (FileStream fs = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+                {
+                    pic_nv.Image = Image.FromStream(fs);
+                }
+                pic_nv.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pic_nv.Image = null;
+            }
+        }
         private void btn_sua_Click(object sender, EventArgs e)
         {
             themmoi = false;
@@ -103,10 +138,10 @@ namespace Quanlybanhang.Danhmucdon
             this.txt_ho.Text = dgvnhanvien.Rows[r].Cells[1].Value.ToString();
             this.txt_ten.Text = dgvnhanvien.Rows[r].Cells[2].Value.ToString();
             this.cmb_gioitinh.Text = dgvnhanvien.Rows[r].Cells[3].Value.ToString();
-            this.dateTimePicker1.Value = DateTime.Now;dgvnhanvien.Rows[r].Cells[4].Value.ToString();
+            this.dateTimePicker1.Value = DateTime.Now; dgvnhanvien.Rows[r].Cells[4].Value.ToString();
             this.txt_diachi.Text = dgvnhanvien.Rows[r].Cells[5].Value.ToString();
             this.txt_dienthoai.Text = dgvnhanvien.Rows[r].Cells[6].Value.ToString();
-            this.pic_nv.Image = dgvnhanvien.Rows[r].Cells[7].Value as Image;
+            string imagePath = dgvnhanvien.Rows[r].Cells[7].Value?.ToString();
             this.btn_lưu.Enabled = true;
             this.btn_huybo.Enabled = true;
             this.panel1.Enabled = true;
@@ -115,7 +150,35 @@ namespace Quanlybanhang.Danhmucdon
             this.btn_xoa.Enabled = true;
             this.btn_thoát.Enabled = true;
             this.txt_manv.Focus();
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                try
+                {
+                    string fullPath = Path.Combine(Application.StartupPath, "Images", imagePath);
+
+                    if (File.Exists(fullPath))
+                    {
+                        using (FileStream fs = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+                        {
+                            pic_nv.Image = Image.FromStream(fs);
+                        }
+
+                        pic_nv.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy file: " + fullPath);
+                        pic_nv.Image = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    pic_nv.Image = null;
+                }
+            }
         }
+
         private void btn_lưu_Click(object sender, EventArgs e)
         {
             conn.Open();
@@ -214,18 +277,29 @@ namespace Quanlybanhang.Danhmucdon
         private void Danhmucnhanvien_Load(object sender, EventArgs e)
         {
             loadData();
+            LoadImageFromGrid();
         }
 
         private void btn_chonanh_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog ofd = new OpenFileDialog(); 
             ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
-
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                pic_nv.Image = Image.FromFile(ofd.FileName);
-                tenhinh = System.IO.Path.GetFileName(ofd.FileName);
+                string sourcePath = ofd.FileName;
+                string fileName = Path.GetFileName(sourcePath);
+                string imageFolder = Path.Combine(Application.StartupPath, "Images");
+                Directory.CreateDirectory(imageFolder); 
+                string destPath = Path.Combine(imageFolder, fileName); 
+                File.Copy(sourcePath, destPath, true); 
+                using (var fs = new FileStream(destPath, FileMode.Open, FileAccess.Read)) 
+                { pic_nv.Image = Image.FromStream(fs); } pic_nv.SizeMode = PictureBoxSizeMode.Zoom;
+                tenhinh = Path.Combine("Images", fileName); 
             }
+        }
+        private void dgvnhanvien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LoadImageFromGrid();
         }
     }
 }
