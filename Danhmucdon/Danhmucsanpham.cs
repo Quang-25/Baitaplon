@@ -14,7 +14,7 @@ namespace Quanlybanhang.Danhmucdon
     
     public partial class Danhmucsanpham : Form
     {
-        string ketnoi = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=Quanlybanhang;Integrated Security=True";
+        string ketnoi = @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
         SqlConnection conn = null;
         SqlDataAdapter da = null;
         DataTable dt = null;
@@ -59,10 +59,8 @@ namespace Quanlybanhang.Danhmucdon
 
         private void Danhmucsanpham_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
 
-        }
-=======
+        
             loadData();
         }
 
@@ -211,6 +209,5 @@ namespace Quanlybanhang.Danhmucdon
                 tenhinh = System.IO.Path.GetFileName(ofd.FileName);
             }
         }
->>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
     }
 }
