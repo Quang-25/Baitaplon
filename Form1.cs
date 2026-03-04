@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Quanlybanhang.giupdo;
 using Quanlybanhang.Danhmucdon;
+using Quanlybanhang.Xemdanhmuc;
+
 
 namespace Quanlybanhang
 {
@@ -74,6 +77,77 @@ namespace Quanlybanhang
             this.Hide();
             nhanvien.ShowDialog();
             this.Show();
+        }
+
+        private void danhMụcThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThanhPho thanhpho = new ThanhPho();
+            this.Hide();
+            thanhpho.intDM = 1;
+            thanhpho.ShowDialog();
+            this.Show();
+        }
+
+        private void danhMụcKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 1. Khởi tạo Form ThanhPho từ namespace Xemdanhmuc
+            ThanhPho frmKhachHang = new ThanhPho();
+
+            // 2. Truyền giá trị 2 để switch case nhảy vào "Danh mục Khách hàng"
+            frmKhachHang.intDM = 2;
+
+            // 3. Hiển thị Form
+            this.Hide();
+            frmKhachHang.ShowDialog();
+            this.Show();
+        }
+
+        private void danhMụcNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThanhPho frm = new ThanhPho();
+            frm.intDM = 3; // Giá trị 3 dành cho Nhân viên
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void danhMụcSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThanhPho frm = new ThanhPho();
+            frm.intDM = 4; // Giá trị 4 dành cho Sản phẩm
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void danhMụcHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThanhPho frm = new ThanhPho();
+            frm.intDM = 5; // Giá trị 5 dành cho Hóa đơn
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void danhMụcChiTiếtHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThanhPho frm = new ThanhPho();
+            frm.intDM = 6; // Giá trị 5 dành cho Hóa đơn
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void hướngDẫnSửDụngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            huongdan frm = new huongdan();
+            frm.ShowDialog();
+        }
+
+        private void tácGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tacgia frm = new Tacgia();
+            frm.ShowDialog();
         }
     }
 }

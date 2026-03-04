@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_masp = new System.Windows.Forms.Label();
-            this.lbl_tensp = new System.Windows.Forms.Label();
-            this.lbl_donvi = new System.Windows.Forms.Label();
-            this.lbl_dongia = new System.Windows.Forms.Label();
-            this.lbl_Hinh = new System.Windows.Forms.Label();
-            this.txt_masp = new System.Windows.Forms.TextBox();
-            this.txt_tensp = new System.Windows.Forms.TextBox();
-            this.cmb_donvi = new System.Windows.Forms.ComboBox();
+            this.pic_Hinh = new System.Windows.Forms.PictureBox();
             this.txt_dongia = new System.Windows.Forms.TextBox();
+            this.cmb_donvi = new System.Windows.Forms.ComboBox();
+            this.txt_tensp = new System.Windows.Forms.TextBox();
+            this.txt_masp = new System.Windows.Forms.TextBox();
+            this.lbl_Hinh = new System.Windows.Forms.Label();
+            this.lbl_dongia = new System.Windows.Forms.Label();
+            this.lbl_donvi = new System.Windows.Forms.Label();
+            this.lbl_tensp = new System.Windows.Forms.Label();
+            this.lbl_masp = new System.Windows.Forms.Label();
             this.btn_reload = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
@@ -46,10 +47,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.btn_thoat = new System.Windows.Forms.Button();
             this.dgvsanpham = new System.Windows.Forms.DataGridView();
-            this.pic_Hinh = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Hinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,69 +69,20 @@
             this.panel1.Size = new System.Drawing.Size(839, 178);
             this.panel1.TabIndex = 0;
             // 
-            // lbl_masp
+            // pic_Hinh
             // 
-            this.lbl_masp.AutoSize = true;
-            this.lbl_masp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_masp.Location = new System.Drawing.Point(4, 5);
-            this.lbl_masp.Name = "lbl_masp";
-            this.lbl_masp.Size = new System.Drawing.Size(125, 22);
-            this.lbl_masp.TabIndex = 3;
-            this.lbl_masp.Text = "Mã sản phẩm: ";
+            this.pic_Hinh.Location = new System.Drawing.Point(525, 52);
+            this.pic_Hinh.Name = "pic_Hinh";
+            this.pic_Hinh.Size = new System.Drawing.Size(180, 112);
+            this.pic_Hinh.TabIndex = 11;
+            this.pic_Hinh.TabStop = false;
             // 
-            // lbl_tensp
+            // txt_dongia
             // 
-            this.lbl_tensp.AutoSize = true;
-            this.lbl_tensp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tensp.Location = new System.Drawing.Point(5, 63);
-            this.lbl_tensp.Name = "lbl_tensp";
-            this.lbl_tensp.Size = new System.Drawing.Size(124, 22);
-            this.lbl_tensp.TabIndex = 4;
-            this.lbl_tensp.Text = "Tên sản phẩm:";
-            // 
-            // lbl_donvi
-            // 
-            this.lbl_donvi.AutoSize = true;
-            this.lbl_donvi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_donvi.Location = new System.Drawing.Point(4, 109);
-            this.lbl_donvi.Name = "lbl_donvi";
-            this.lbl_donvi.Size = new System.Drawing.Size(105, 22);
-            this.lbl_donvi.TabIndex = 5;
-            this.lbl_donvi.Text = "Đơn vị tính:";
-            // 
-            // lbl_dongia
-            // 
-            this.lbl_dongia.AutoSize = true;
-            this.lbl_dongia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_dongia.Location = new System.Drawing.Point(431, 5);
-            this.lbl_dongia.Name = "lbl_dongia";
-            this.lbl_dongia.Size = new System.Drawing.Size(79, 22);
-            this.lbl_dongia.TabIndex = 3;
-            this.lbl_dongia.Text = "Đơn giá:";
-            // 
-            // lbl_Hinh
-            // 
-            this.lbl_Hinh.AutoSize = true;
-            this.lbl_Hinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Hinh.Location = new System.Drawing.Point(431, 63);
-            this.lbl_Hinh.Name = "lbl_Hinh";
-            this.lbl_Hinh.Size = new System.Drawing.Size(54, 22);
-            this.lbl_Hinh.TabIndex = 6;
-            this.lbl_Hinh.Text = "Hình:";
-            // 
-            // txt_masp
-            // 
-            this.txt_masp.Location = new System.Drawing.Point(136, 9);
-            this.txt_masp.Name = "txt_masp";
-            this.txt_masp.Size = new System.Drawing.Size(136, 22);
-            this.txt_masp.TabIndex = 7;
-            // 
-            // txt_tensp
-            // 
-            this.txt_tensp.Location = new System.Drawing.Point(136, 63);
-            this.txt_tensp.Name = "txt_tensp";
-            this.txt_tensp.Size = new System.Drawing.Size(136, 22);
-            this.txt_tensp.TabIndex = 8;
+            this.txt_dongia.Location = new System.Drawing.Point(525, 6);
+            this.txt_dongia.Name = "txt_dongia";
+            this.txt_dongia.Size = new System.Drawing.Size(180, 22);
+            this.txt_dongia.TabIndex = 10;
             // 
             // cmb_donvi
             // 
@@ -148,12 +99,69 @@
             this.cmb_donvi.Size = new System.Drawing.Size(121, 24);
             this.cmb_donvi.TabIndex = 9;
             // 
-            // txt_dongia
+            // txt_tensp
             // 
-            this.txt_dongia.Location = new System.Drawing.Point(525, 6);
-            this.txt_dongia.Name = "txt_dongia";
-            this.txt_dongia.Size = new System.Drawing.Size(180, 22);
-            this.txt_dongia.TabIndex = 10;
+            this.txt_tensp.Location = new System.Drawing.Point(136, 63);
+            this.txt_tensp.Name = "txt_tensp";
+            this.txt_tensp.Size = new System.Drawing.Size(136, 22);
+            this.txt_tensp.TabIndex = 8;
+            // 
+            // txt_masp
+            // 
+            this.txt_masp.Location = new System.Drawing.Point(136, 9);
+            this.txt_masp.Name = "txt_masp";
+            this.txt_masp.Size = new System.Drawing.Size(136, 22);
+            this.txt_masp.TabIndex = 7;
+            // 
+            // lbl_Hinh
+            // 
+            this.lbl_Hinh.AutoSize = true;
+            this.lbl_Hinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Hinh.Location = new System.Drawing.Point(431, 63);
+            this.lbl_Hinh.Name = "lbl_Hinh";
+            this.lbl_Hinh.Size = new System.Drawing.Size(54, 22);
+            this.lbl_Hinh.TabIndex = 6;
+            this.lbl_Hinh.Text = "Hình:";
+            // 
+            // lbl_dongia
+            // 
+            this.lbl_dongia.AutoSize = true;
+            this.lbl_dongia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_dongia.Location = new System.Drawing.Point(431, 5);
+            this.lbl_dongia.Name = "lbl_dongia";
+            this.lbl_dongia.Size = new System.Drawing.Size(79, 22);
+            this.lbl_dongia.TabIndex = 3;
+            this.lbl_dongia.Text = "Đơn giá:";
+            // 
+            // lbl_donvi
+            // 
+            this.lbl_donvi.AutoSize = true;
+            this.lbl_donvi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_donvi.Location = new System.Drawing.Point(4, 109);
+            this.lbl_donvi.Name = "lbl_donvi";
+            this.lbl_donvi.Size = new System.Drawing.Size(105, 22);
+            this.lbl_donvi.TabIndex = 5;
+            this.lbl_donvi.Text = "Đơn vị tính:";
+            // 
+            // lbl_tensp
+            // 
+            this.lbl_tensp.AutoSize = true;
+            this.lbl_tensp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tensp.Location = new System.Drawing.Point(5, 63);
+            this.lbl_tensp.Name = "lbl_tensp";
+            this.lbl_tensp.Size = new System.Drawing.Size(124, 22);
+            this.lbl_tensp.TabIndex = 4;
+            this.lbl_tensp.Text = "Tên sản phẩm:";
+            // 
+            // lbl_masp
+            // 
+            this.lbl_masp.AutoSize = true;
+            this.lbl_masp.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_masp.Location = new System.Drawing.Point(4, 5);
+            this.lbl_masp.Name = "lbl_masp";
+            this.lbl_masp.Size = new System.Drawing.Size(125, 22);
+            this.lbl_masp.TabIndex = 3;
+            this.lbl_masp.Text = "Mã sản phẩm: ";
             // 
             // btn_reload
             // 
@@ -232,14 +240,6 @@
             this.dgvsanpham.Size = new System.Drawing.Size(839, 217);
             this.dgvsanpham.TabIndex = 12;
             // 
-            // pic_Hinh
-            // 
-            this.pic_Hinh.Location = new System.Drawing.Point(525, 52);
-            this.pic_Hinh.Name = "pic_Hinh";
-            this.pic_Hinh.Size = new System.Drawing.Size(180, 112);
-            this.pic_Hinh.TabIndex = 11;
-            this.pic_Hinh.TabStop = false;
-            // 
             // Danhmucsanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -256,10 +256,11 @@
             this.Controls.Add(this.panel1);
             this.Name = "Danhmucsanpham";
             this.Text = "Danhmucsanpham";
+            this.Load += new System.EventHandler(this.Danhmucsanpham_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Hinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).EndInit();
             this.ResumeLayout(false);
 
         }

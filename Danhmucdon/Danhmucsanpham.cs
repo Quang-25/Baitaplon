@@ -16,5 +16,10 @@ namespace Quanlybanhang.Danhmucdon
         {
             InitializeComponent();
         }
+
+        private void Danhmucsanpham_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,5 +16,10 @@ namespace Quanlybanhang
         {
             InitializeComponent();
         }
+
+        private void Đăng_nhập_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
