@@ -131,14 +131,14 @@ namespace Quanlybanhang.Danhmucdon
         }
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            themmoi = false;
+            themmoi = true;
             this.panel1.Enabled = true;
             int r = dgvnhanvien.CurrentCell.RowIndex;
             this.txt_manv.Text = dgvnhanvien.Rows[r].Cells[0].Value.ToString();
             this.txt_ho.Text = dgvnhanvien.Rows[r].Cells[1].Value.ToString();
             this.txt_ten.Text = dgvnhanvien.Rows[r].Cells[2].Value.ToString();
             this.cmb_gioitinh.Text = dgvnhanvien.Rows[r].Cells[3].Value.ToString();
-            this.dateTimePicker1.Value = DateTime.Now; dgvnhanvien.Rows[r].Cells[4].Value.ToString();
+            this.dateTimePicker1.Value = Convert.ToDateTime(dgvnhanvien.Rows[r].Cells[4].Value);
             this.txt_diachi.Text = dgvnhanvien.Rows[r].Cells[5].Value.ToString();
             this.txt_dienthoai.Text = dgvnhanvien.Rows[r].Cells[6].Value.ToString();
             string imagePath = dgvnhanvien.Rows[r].Cells[7].Value?.ToString();
@@ -282,19 +282,37 @@ namespace Quanlybanhang.Danhmucdon
 
         private void btn_chonanh_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog(); 
+            OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                string sourcePath = ofd.FileName;
-                string fileName = Path.GetFileName(sourcePath);
+                string sourcePath = ofd.FileName;               // Đường dẫn gốc
+                string fileName = Path.GetFileName(sourcePath); // prev_3.jpg
+
+                // Thư mục Images trong chương trình
                 string imageFolder = Path.Combine(Application.StartupPath, "Images");
-                Directory.CreateDirectory(imageFolder); 
-                string destPath = Path.Combine(imageFolder, fileName); 
-                File.Copy(sourcePath, destPath, true); 
-                using (var fs = new FileStream(destPath, FileMode.Open, FileAccess.Read)) 
-                { pic_nv.Image = Image.FromStream(fs); } pic_nv.SizeMode = PictureBoxSizeMode.Zoom;
-                tenhinh = Path.Combine("Images", fileName); 
+
+                // Nếu chưa có thư mục thì tạo
+                if (!Directory.Exists(imageFolder))
+                    Directory.CreateDirectory(imageFolder);
+
+                // Đường dẫn đích
+                string destPath = Path.Combine(imageFolder, fileName);
+
+                // Copy ảnh (ghi đè nếu trùng tên)
+                File.Copy(sourcePath, destPath, true);
+
+                // Hiển thị ảnh (không khóa file)
+                using (var fs = new FileStream(destPath, FileMode.Open, FileAccess.Read))
+                {
+                    pic_nv.Image = Image.FromStream(fs);
+                }
+
+                pic_nv.SizeMode = PictureBoxSizeMode.Zoom;
+
+                // LƯU DB: Images/prev_3.jpg
+                tenhinh = fileName;   // chỉ lưu tên file
             }
         }
         private void dgvnhanvien_CellContentClick(object sender, DataGridViewCellEventArgs e)

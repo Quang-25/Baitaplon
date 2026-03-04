@@ -248,6 +248,7 @@
             this.dgvsanpham.RowTemplate.Height = 24;
             this.dgvsanpham.Size = new System.Drawing.Size(839, 217);
             this.dgvsanpham.TabIndex = 12;
+            this.dgvsanpham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsanpham_CellContentClick);
             // 
             // btn_chonanh
             // 
