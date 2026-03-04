@@ -160,7 +160,7 @@
             this.dgvkhachhang.Name = "dgvkhachhang";
             this.dgvkhachhang.RowHeadersWidth = 51;
             this.dgvkhachhang.RowTemplate.Height = 24;
-            this.dgvkhachhang.Size = new System.Drawing.Size(599, 193);
+            this.dgvkhachhang.Size = new System.Drawing.Size(613, 193);
             this.dgvkhachhang.TabIndex = 8;
             // 
             // btn_reload
