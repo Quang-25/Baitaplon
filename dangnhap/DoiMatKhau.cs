@@ -13,38 +13,53 @@ namespace Quanlybanhang
 {
     public partial class DoiMatKhau : Form
     {
-        string connectionString = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=quanlybanhang;Integrated Security=True";
+        string connectionString = @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
 
         public DoiMatKhau()
         {
             InitializeComponent();
 
-            // Hiển thị tên Admin
-            if (DangNhapAdmin.IsAdmin)
+            // Kiểm tra đã đăng nhập chưa
+            if (string.IsNullOrEmpty(DangNhap.Username))
             {
-                txtTaiKhoan.Text = DangNhapAdmin.AdminName;
-            }
-            else
-            {
-                // Nếu không phải Admin thì tự động đóng form
-                MessageBox.Show("Bạn không có quyền truy cập!", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn chưa đăng nhập!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
+                return;
             }
 
-            txtTaiKhoan.Enabled = false;
+            // Hiển thị tên đăng nhập hiện tại
+            txtTenDangNhap.Text = DangNhap.Username;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            string tenDangNhap = txtTenDangNhap.Text.Trim();
             string matKhauCu = txtMatKhauCu.Text;
             string matKhauMoi = txtMatKhauMoi.Text;
-            string xacNhanMK = txtXacNhanMatKhau.Text;
 
-            if (string.IsNullOrEmpty(matKhauCu) || string.IsNullOrEmpty(matKhauMoi) || string.IsNullOrEmpty(xacNhanMK))
+            // Kiểm tra dữ liệu nhập
+            if (string.IsNullOrEmpty(tenDangNhap))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo",
+                MessageBox.Show("Tên đăng nhập không được để trống!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenDangNhap.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(matKhauCu))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu cũ!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhauCu.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(matKhauMoi))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu mới!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhauMoi.Focus();
                 return;
             }
 
@@ -52,13 +67,15 @@ namespace Quanlybanhang
             {
                 MessageBox.Show("Mật khẩu mới phải có ít nhất 6 ký tự!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhauMoi.Focus();
                 return;
             }
 
-            if (matKhauMoi != xacNhanMK)
+            if (matKhauCu == matKhauMoi)
             {
-                MessageBox.Show("Mật khẩu mới và xác nhận không khớp!", "Thông báo",
+                MessageBox.Show("Mật khẩu mới không được trùng với mật khẩu cũ!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhauMoi.Focus();
                 return;
             }
 
@@ -68,37 +85,40 @@ namespace Quanlybanhang
                 {
                     conn.Open();
 
-                    // Kiểm tra mật khẩu cũ của Admin
-                    string checkQuery = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password AND Role = 'Admin'";
+                    // Kiểm tra mật khẩu cũ
+                    string checkQuery = @"SELECT COUNT(*) FROM Users 
+                                         WHERE Username = @Username 
+                                         AND Password = @Password";
+
                     using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
                     {
-                        checkCmd.Parameters.AddWithValue("@Username", DangNhapAdmin.AdminName);
+                        checkCmd.Parameters.AddWithValue("@Username", tenDangNhap);
                         checkCmd.Parameters.AddWithValue("@Password", matKhauCu);
 
                         int count = (int)checkCmd.ExecuteScalar();
 
                         if (count == 0)
                         {
-                            MessageBox.Show("Mật khẩu cũ không đúng!", "Lỗi",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Mật khẩu cũ không đúng!",
+                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             txtMatKhauCu.Clear();
                             txtMatKhauCu.Focus();
                             return;
                         }
                     }
 
-                    // Cập nhật mật khẩu mới cho Admin
-                    string updateQuery = "UPDATE Users SET Password = @NewPassword WHERE Username = @Username AND Role = 'Admin'";
+                    // Cập nhật mật khẩu mới
+                    string updateQuery = "UPDATE Users SET Password = @NewPassword WHERE Username = @Username";
                     using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
                     {
-                        updateCmd.Parameters.AddWithValue("@Username", DangNhapAdmin.AdminName);
+                        updateCmd.Parameters.AddWithValue("@Username", tenDangNhap);
                         updateCmd.Parameters.AddWithValue("@NewPassword", matKhauMoi);
 
                         int result = updateCmd.ExecuteNonQuery();
 
                         if (result > 0)
                         {
-                            MessageBox.Show("Đổi mật khẩu Admin thành công!", "Thông báo",
+                            MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close();
                         }
@@ -128,19 +148,12 @@ namespace Quanlybanhang
             {
                 txtMatKhauCu.PasswordChar = '\0';
                 txtMatKhauMoi.PasswordChar = '\0';
-                txtXacNhanMatKhau.PasswordChar = '\0';
             }
             else
             {
                 txtMatKhauCu.PasswordChar = '•';
                 txtMatKhauMoi.PasswordChar = '•';
-                txtXacNhanMatKhau.PasswordChar = '•';
             }
-        }
-
-        private void DoiMatKhau_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -227,18 +227,94 @@ namespace Quanlybanhang
 
         private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Chỉ Admin mới được đổi mật khẩu
-            if (!DangNhapAdmin.IsAdmin)
+            // Kiểm tra đã đăng nhập chưa
+            if (string.IsNullOrEmpty(DangNhap.Username))
             {
-                MessageBox.Show("Chỉ Admin mới có quyền đổi mật khẩu!",
+                MessageBox.Show("Vui lòng đăng nhập trước khi đổi mật khẩu!",
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Mở form đổi mật khẩu
+            // Mở form đổi mật khẩu (cho phép tất cả các vai trò)
             DoiMatKhau frm = new DoiMatKhau();
-             frm.ShowDialog();
-            
+
+            // Nếu đăng xuất được yêu cầu (khi đổi mật khẩu thành công và chọn đăng nhập lại)
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Ẩn menu Cấu hình hệ thống
+                cauHinhHeThongToolStripMenuItem.Visible = false;
+
+                // Reset menu Đăng nhập Admin
+                dangNhapAdminToolStripMenuItem.Text = "Đăng nhập Admin";
+                dangNhapAdminToolStripMenuItem.Enabled = true;
+
+                // Quay về màn hình đăng nhập
+                this.Hide();
+                DangNhap frmDangNhap = new DangNhap();
+
+                if (frmDangNhap.ShowDialog() == DialogResult.OK)
+                {
+                    // Cập nhật lại trạng thái menu nếu đăng nhập Admin
+                    if (DangNhapAdmin.IsAdmin)
+                    {
+                        cauHinhHeThongToolStripMenuItem.Visible = true;
+                        dangNhapAdminToolStripMenuItem.Text = $"Admin: {DangNhapAdmin.AdminName}";
+                        dangNhapAdminToolStripMenuItem.Enabled = false;
+                    }
+                    this.Show();
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Hỏi xác nhận đăng xuất
+            DialogResult rs = MessageBox.Show("Bạn có chắc muốn đăng xuất?",
+                "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (rs == DialogResult.Yes)
+            {
+                // Đăng xuất Admin nếu đang đăng nhập
+                if (DangNhapAdmin.IsAdmin)
+                {
+                    DangNhapAdmin.Logout();
+                }
+
+                // Đăng xuất người dùng thường
+                DangNhap.Logout();
+
+                // Ẩn menu Cấu hình hệ thống
+                cauHinhHeThongToolStripMenuItem.Visible = false;
+
+                // Reset menu Đăng nhập Admin
+                dangNhapAdminToolStripMenuItem.Text = "Đăng nhập Admin";
+                dangNhapAdminToolStripMenuItem.Enabled = true;
+
+                // Quay về màn hình đăng nhập
+                this.Hide();
+                DangNhap frmDangNhap = new DangNhap();
+
+                // Nếu đăng nhập lại thành công thì hiển thị Form1, nếu không thì thoát
+                if (frmDangNhap.ShowDialog() == DialogResult.OK)
+                {
+                    // Cập nhật lại trạng thái menu nếu đăng nhập Admin
+                    if (DangNhapAdmin.IsAdmin)
+                    {
+                        cauHinhHeThongToolStripMenuItem.Visible = true;
+                        dangNhapAdminToolStripMenuItem.Text = $"Admin: {DangNhapAdmin.AdminName}";
+                        dangNhapAdminToolStripMenuItem.Enabled = false;
+                    }
+                    this.Show();
+                }
+                else
+                {
+                    // Nếu không đăng nhập thì thoát ứng dụng
+                    Application.Exit();
+                }
+            }
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -251,6 +327,17 @@ namespace Quanlybanhang
                 Application.Exit();
             }
         }
+        private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!DangNhapAdmin.IsAdmin)
+            {
+                MessageBox.Show("Chỉ Admin mới có quyền quản lý người dùng!",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            QuanLyNguoiDung frm = new QuanLyNguoiDung();
+            frm.ShowDialog();
+        }
     }
 }

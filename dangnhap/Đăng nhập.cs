@@ -14,7 +14,7 @@ namespace Quanlybanhang
     public partial class DangNhap : Form
     {
         // Chuỗi kết nối database - SỬA THEO SERVER CỦA BẠN
-        string connectionString = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=quanlybanhang;Integrated Security=True";
+        string connectionString = @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
 
         // Biến lưu thông tin người dùng hiện tại
         public static string Username { get; set; } = "";
