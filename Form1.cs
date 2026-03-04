@@ -11,7 +11,6 @@ using Quanlybanhang.giupdo;
 using Quanlybanhang.Danhmucdon;
 using Quanlybanhang.Xemdanhmuc;
 
-
 using Quanlybanhang.Danhmuctheonhom;
 
 
@@ -26,7 +25,7 @@ namespace Quanlybanhang
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void danhMụcThànhPhốToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -192,6 +191,65 @@ namespace Quanlybanhang
             this.Hide();
             f.ShowDialog();
             this.Show();
+        }
+
+
+        private void dangNhapAdminToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (DangNhapAdmin frm = new DangNhapAdmin())
+            {
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    cauHinhHeThongToolStripMenuItem.Visible = true;
+                    dangNhapAdminToolStripMenuItem.Text = $"Admin: {DangNhapAdmin.AdminName}";
+                    dangNhapAdminToolStripMenuItem.Enabled = false;
+
+                    MessageBox.Show("Đăng nhập Admin thành công!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void cauHinhHeThongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!DangNhapAdmin.IsAdmin)
+            {
+                MessageBox.Show("Bạn cần đăng nhập Admin để sử dụng chức năng này!",
+                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Mở form cấu hình hệ thống (đã xóa phần đổi mật khẩu)
+            // Mở form cấu hình hệ thống
+            CauHinhHeThong frm = new CauHinhHeThong();
+            frm.ShowDialog();
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Chỉ Admin mới được đổi mật khẩu
+            if (!DangNhapAdmin.IsAdmin)
+            {
+                MessageBox.Show("Chỉ Admin mới có quyền đổi mật khẩu!",
+                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Mở form đổi mật khẩu
+            DoiMatKhau frm = new DoiMatKhau();
+             frm.ShowDialog();
+            
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Bạn có chắc muốn thoát ứng dụng?",
+                "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (rs == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
     }

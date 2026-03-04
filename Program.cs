@@ -16,7 +16,19 @@ namespace Quanlybanhang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            DangNhap frmDangNhap = new DangNhap();
+
+            // Nếu đăng nhập thành công (DialogResult = OK) thì mới chạy Form1
+            if (frmDangNhap.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Form1());
+            }
+            else
+            {
+                // Nếu không đăng nhập (nhấn thoát hoặc đóng form) thì thoát ứng dụng
+                Application.Exit();
+            }
         }
+
     }
 }

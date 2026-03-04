@@ -13,7 +13,7 @@ namespace Quanlybanhang.Xemdanhmuc
 {
     public partial class ThanhPho : Form
     {
-        string ketnoi = @"Data Source=ADMIN-PC\SQLEXPRESS01;Initial Catalog=Quanlybanhang;Integrated Security=True";
+        string ketnoi = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=Quanlybanhang;Integrated Security=True";
         SqlConnection conn = null;
         SqlDataAdapter da = null;
         DataTable dt = null;
