@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Quanlybanhang.giupdo;
 using Quanlybanhang.Danhmucdon;
+<<<<<<< HEAD
 using Quanlybanhang.Xemdanhmuc;
 
+=======
+using Quanlybanhang.Danhmuctheonhom;
+>>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
 
 namespace Quanlybanhang
 {
@@ -79,6 +83,7 @@ namespace Quanlybanhang
             this.Show();
         }
 
+<<<<<<< HEAD
         private void danhMụcThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ThanhPho thanhpho = new ThanhPho();
@@ -149,5 +154,46 @@ namespace Quanlybanhang
             Tacgia frm = new Tacgia();
             frm.ShowDialog();
         }
+=======
+        private void kháchHàngTheoThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmKhachtheoTP f = new frmKhachtheoTP();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void hóaĐơnTheoKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonTheoKH f = new frmHoaDonTheoKH();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void hóaĐơnTheoSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonTheoSP f = new frmHoaDonTheoSP();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void hóaĐơnTheoNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHoaDonTheoNV f = new frmHoaDonTheoNV();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void chiTiếtHóaĐơnTheoNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChiTietTheoNV f = new frmChiTietTheoNV();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+>>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
     }
 }

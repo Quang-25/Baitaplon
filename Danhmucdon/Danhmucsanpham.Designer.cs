@@ -43,10 +43,14 @@
             this.btn_them = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_huybo = new System.Windows.Forms.Button();
+            this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_thoat = new System.Windows.Forms.Button();
             this.dgvsanpham = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
+=======
+            this.btn_chonanh = new System.Windows.Forms.Button();
+>>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Hinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).BeginInit();
@@ -73,7 +77,12 @@
             // 
             this.pic_Hinh.Location = new System.Drawing.Point(525, 52);
             this.pic_Hinh.Name = "pic_Hinh";
+<<<<<<< HEAD
             this.pic_Hinh.Size = new System.Drawing.Size(180, 112);
+=======
+            this.pic_Hinh.Size = new System.Drawing.Size(192, 112);
+            this.pic_Hinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+>>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
             this.pic_Hinh.TabIndex = 11;
             this.pic_Hinh.TabStop = false;
             // 
@@ -172,24 +181,27 @@
             this.btn_reload.TabIndex = 4;
             this.btn_reload.Text = "Reload";
             this.btn_reload.UseVisualStyleBackColor = true;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // btn_them
             // 
-            this.btn_them.Location = new System.Drawing.Point(333, 188);
+            this.btn_them.Location = new System.Drawing.Point(309, 188);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(95, 56);
             this.btn_them.TabIndex = 5;
             this.btn_them.Text = "Thêm";
             this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // btn_sua
             // 
-            this.btn_sua.Location = new System.Drawing.Point(582, 188);
+            this.btn_sua.Location = new System.Drawing.Point(540, 188);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(92, 56);
             this.btn_sua.TabIndex = 6;
             this.btn_sua.Text = "Sửa";
             this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_luu
             // 
@@ -200,35 +212,39 @@
             this.btn_luu.TabIndex = 7;
             this.btn_luu.Text = "Lưu";
             this.btn_luu.UseVisualStyleBackColor = true;
+            this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
-            // button2
+            // btn_huybo
             // 
-            this.button2.Location = new System.Drawing.Point(333, 250);
-            this.button2.Name = "button2";
-            this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button2.Size = new System.Drawing.Size(95, 56);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Hủy bỏ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_huybo.Location = new System.Drawing.Point(309, 250);
+            this.btn_huybo.Name = "btn_huybo";
+            this.btn_huybo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_huybo.Size = new System.Drawing.Size(95, 56);
+            this.btn_huybo.TabIndex = 8;
+            this.btn_huybo.Text = "Hủy bỏ";
+            this.btn_huybo.UseVisualStyleBackColor = true;
+            this.btn_huybo.Click += new System.EventHandler(this.btn_huybo_Click);
             // 
-            // button3
+            // btn_xoa
             // 
-            this.button3.Location = new System.Drawing.Point(582, 250);
-            this.button3.Name = "button3";
-            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(92, 56);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_xoa.Location = new System.Drawing.Point(540, 250);
+            this.btn_xoa.Name = "btn_xoa";
+            this.btn_xoa.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_xoa.Size = new System.Drawing.Size(92, 56);
+            this.btn_xoa.TabIndex = 9;
+            this.btn_xoa.Text = "Xóa";
+            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_thoat
             // 
-            this.btn_thoat.Location = new System.Drawing.Point(726, 222);
+            this.btn_thoat.Location = new System.Drawing.Point(716, 250);
             this.btn_thoat.Name = "btn_thoat";
             this.btn_thoat.Size = new System.Drawing.Size(95, 56);
             this.btn_thoat.TabIndex = 11;
             this.btn_thoat.Text = "Thoát";
             this.btn_thoat.UseVisualStyleBackColor = true;
+            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
             // 
             // dgvsanpham
             // 
@@ -240,15 +256,29 @@
             this.dgvsanpham.Size = new System.Drawing.Size(839, 217);
             this.dgvsanpham.TabIndex = 12;
             // 
+<<<<<<< HEAD
+=======
+            // btn_chonanh
+            // 
+            this.btn_chonanh.Location = new System.Drawing.Point(716, 188);
+            this.btn_chonanh.Name = "btn_chonanh";
+            this.btn_chonanh.Size = new System.Drawing.Size(95, 56);
+            this.btn_chonanh.TabIndex = 13;
+            this.btn_chonanh.Text = "Chọn ảnh";
+            this.btn_chonanh.UseVisualStyleBackColor = true;
+            this.btn_chonanh.Click += new System.EventHandler(this.btn_chonanh_Click);
+            // 
+>>>>>>> 7a43c739a1fda4d905dc6966fd221e71a321d3a6
             // Danhmucsanpham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 541);
+            this.Controls.Add(this.btn_chonanh);
             this.Controls.Add(this.dgvsanpham);
             this.Controls.Add(this.btn_thoat);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_xoa);
+            this.Controls.Add(this.btn_huybo);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.btn_them);
@@ -282,9 +312,10 @@
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.Button btn_luu;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_huybo;
+        private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_thoat;
         private System.Windows.Forms.DataGridView dgvsanpham;
+        private System.Windows.Forms.Button btn_chonanh;
     }
 }
