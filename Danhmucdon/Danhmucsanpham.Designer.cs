@@ -74,7 +74,9 @@
             // 
             this.pic_Hinh.Location = new System.Drawing.Point(525, 52);
             this.pic_Hinh.Name = "pic_Hinh";
+
             this.pic_Hinh.Size = new System.Drawing.Size(180, 112);
+
             this.pic_Hinh.Size = new System.Drawing.Size(192, 112);
             this.pic_Hinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Hinh.TabIndex = 11;
@@ -249,6 +251,7 @@
             this.dgvsanpham.RowTemplate.Height = 24;
             this.dgvsanpham.Size = new System.Drawing.Size(839, 217);
             this.dgvsanpham.TabIndex = 12;
+            this.dgvsanpham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvsanpham_CellContentClick);
             // 
             // btn_chonanh
             // 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Quanlybanhang.giupdo;
 using Quanlybanhang.Danhmucdon;
 using Quanlybanhang.Xemdanhmuc;
+
 using Quanlybanhang.Danhmuctheonhom;
 
 
@@ -24,7 +25,7 @@ namespace Quanlybanhang
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void danhMụcThànhPhốToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -79,6 +80,7 @@ namespace Quanlybanhang
             nhanvien.ShowDialog();
             this.Show();
         }
+
 
         private void danhMụcThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -150,6 +152,7 @@ namespace Quanlybanhang
             Tacgia frm = new Tacgia();
             frm.ShowDialog();
         }
+
         private void kháchHàngTheoThànhPhốToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmKhachtheoTP f = new frmKhachtheoTP();
@@ -189,6 +192,8 @@ namespace Quanlybanhang
             f.ShowDialog();
             this.Show();
         }
+
+
         private void dangNhapAdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (DangNhapAdmin frm = new DangNhapAdmin())
@@ -246,5 +251,6 @@ namespace Quanlybanhang
                 Application.Exit();
             }
         }
+
     }
 }

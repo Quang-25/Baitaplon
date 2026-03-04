@@ -21,9 +21,9 @@
             this.btnHuy = new System.Windows.Forms.Button();
             this.panelFooter = new System.Windows.Forms.Panel();
             this.tabTheme = new System.Windows.Forms.TabPage();
-            this.btnApDungTheme = new System.Windows.Forms.Button();
-            this.cboTheme = new System.Windows.Forms.ComboBox();
             this.lblTheme = new System.Windows.Forms.Label();
+            this.cboTheme = new System.Windows.Forms.ComboBox();
+            this.btnApDungTheme = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabTheme.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -65,19 +65,15 @@
             this.tabTheme.Text = "Giao diện";
             this.tabTheme.UseVisualStyleBackColor = true;
             // 
-            // btnApDungTheme
+            // lblTheme
             // 
-            this.btnApDungTheme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.btnApDungTheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApDungTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnApDungTheme.ForeColor = System.Drawing.Color.White;
-            this.btnApDungTheme.Location = new System.Drawing.Point(50, 130);
-            this.btnApDungTheme.Name = "btnApDungTheme";
-            this.btnApDungTheme.Size = new System.Drawing.Size(150, 35);
-            this.btnApDungTheme.TabIndex = 2;
-            this.btnApDungTheme.Text = "ÁP DỤNG";
-            this.btnApDungTheme.UseVisualStyleBackColor = false;
-            this.btnApDungTheme.Click += new System.EventHandler(this.btnApDungTheme_Click);
+            this.lblTheme.AutoSize = true;
+            this.lblTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblTheme.Location = new System.Drawing.Point(50, 50);
+            this.lblTheme.Name = "lblTheme";
+            this.lblTheme.Size = new System.Drawing.Size(125, 20);
+            this.lblTheme.TabIndex = 0;
+            this.lblTheme.Text = "Chọn giao diện:";
             // 
             // cboTheme
             // 
@@ -94,15 +90,19 @@
             this.cboTheme.Size = new System.Drawing.Size(200, 30);
             this.cboTheme.TabIndex = 1;
             // 
-            // lblTheme
+            // btnApDungTheme
             // 
-            this.lblTheme.AutoSize = true;
-            this.lblTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblTheme.Location = new System.Drawing.Point(50, 50);
-            this.lblTheme.Name = "lblTheme";
-            this.lblTheme.Size = new System.Drawing.Size(125, 20);
-            this.lblTheme.TabIndex = 0;
-            this.lblTheme.Text = "Chọn giao diện:";
+            this.btnApDungTheme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnApDungTheme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApDungTheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnApDungTheme.ForeColor = System.Drawing.Color.White;
+            this.btnApDungTheme.Location = new System.Drawing.Point(50, 130);
+            this.btnApDungTheme.Name = "btnApDungTheme";
+            this.btnApDungTheme.Size = new System.Drawing.Size(150, 35);
+            this.btnApDungTheme.TabIndex = 2;
+            this.btnApDungTheme.Text = "ÁP DỤNG";
+            this.btnApDungTheme.UseVisualStyleBackColor = false;
+            this.btnApDungTheme.Click += new System.EventHandler(this.btnApDungTheme_Click);
             // 
             // tabControl
             // 
@@ -127,6 +127,7 @@
             this.Name = "CauHinhHeThong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cấu hình hệ thống (Admin)";
+            this.Load += new System.EventHandler(this.CauHinhHeThong_Load);
             this.tabTheme.ResumeLayout(false);
             this.tabTheme.PerformLayout();
             this.tabControl.ResumeLayout(false);

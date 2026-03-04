@@ -13,7 +13,7 @@ namespace Quanlybanhang
 {
     public partial class DoiMatKhau : Form
     {
-        string connectionString = @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
+        string connectionString = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=quanlybanhang;Integrated Security=True";
 
         public DoiMatKhau()
         {
@@ -136,6 +136,11 @@ namespace Quanlybanhang
                 txtMatKhauMoi.PasswordChar = '•';
                 txtXacNhanMatKhau.PasswordChar = '•';
             }
+        }
+
+        private void DoiMatKhau_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

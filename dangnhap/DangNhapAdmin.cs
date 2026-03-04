@@ -14,7 +14,7 @@ namespace Quanlybanhang
     public partial class DangNhapAdmin : Form
     {
         // Chuỗi kết nối database
-        string connectionString = @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
+        string connectionString = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=quanlybanhang;Integrated Security=True";
 
         // Biến kiểm tra quyền admin
         public static bool IsAdmin { get; private set; } = false;
@@ -108,6 +108,11 @@ namespace Quanlybanhang
         {
             IsAdmin = false;
             AdminName = "";
+        }
+
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

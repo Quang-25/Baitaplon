@@ -4,17 +4,19 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Quanlybanhang.Danhmucdon
 {
     
     public partial class Danhmucsanpham : Form
     {
-        string ketnoi = @"Data Source=DESKTOP-ACVJ7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
+        string ketnoi = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=quanlybanhang;Integrated Security=True";
         SqlConnection conn = null;
         SqlDataAdapter da = null;
         DataTable dt = null;
@@ -60,9 +62,47 @@ namespace Quanlybanhang.Danhmucdon
         private void Danhmucsanpham_Load(object sender, EventArgs e)
         {
 
-        
             loadData();
+            LoadImageFromGrid();
+
         }
+        void LoadImageFromGrid()
+        {
+            if (dgvsanpham.CurrentRow == null) return;
+
+            string imagePath = dgvsanpham.CurrentRow.Cells["Hinh"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(imagePath))
+            {
+                pic_Hinh.Image = null;
+                return;
+            }
+
+            string fullPath;
+
+            // Nếu DB đã lưu dạng Images\abc.jpg
+            if (imagePath.StartsWith("Images"))
+                fullPath = Path.Combine(Application.StartupPath, imagePath);
+            else
+                fullPath = Path.Combine(Application.StartupPath, "Images", imagePath);
+
+            if (File.Exists(fullPath))
+            {
+                using (FileStream fs = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+                {
+                    pic_Hinh.Image = Image.FromStream(fs);
+                }
+                pic_Hinh.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            else
+            {
+                pic_Hinh.Image = null;
+            }
+
+   
+
+        }
+
 
         private void btn_reload_Click(object sender, EventArgs e)
         {
@@ -93,14 +133,14 @@ namespace Quanlybanhang.Danhmucdon
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            themmoi = true;
+            themmoi = false;
             this.panel1.Enabled = true;
             int r = dgvsanpham.CurrentCell.RowIndex;
             this.txt_masp.Text = dgvsanpham.Rows[r].Cells[0].Value.ToString();
             this.txt_tensp.Text = dgvsanpham.Rows[r].Cells[1].Value.ToString();
             this.cmb_donvi.Text = dgvsanpham.Rows[r].Cells[2].Value.ToString();
             this.txt_dongia.Text = dgvsanpham.Rows[r].Cells[3].Value.ToString();
-            this.pic_Hinh.Image = dgvsanpham.Rows[r].Cells[4].Value as Image;
+            string imagePath = dgvsanpham.Rows[r].Cells[4].Value?.ToString();
             this.btn_luu.Enabled = true;
             this.btn_huybo.Enabled = true;
             this.panel1.Enabled = true;
@@ -109,6 +149,33 @@ namespace Quanlybanhang.Danhmucdon
             this.btn_xoa.Enabled = true;
             this.btn_thoat.Enabled = true;
             this.txt_masp.Focus();
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                try
+                {
+                    string fullPath = Path.Combine(Application.StartupPath, "Images", imagePath);
+
+                    if (File.Exists(fullPath))
+                    {
+                        using (FileStream fs = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+                        {
+                            pic_Hinh.Image = Image.FromStream(fs);
+                        }
+
+                        pic_Hinh.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy file: " + fullPath);
+                        pic_Hinh.Image = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    pic_Hinh.Image = null;
+                }
+            }
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -205,9 +272,41 @@ namespace Quanlybanhang.Danhmucdon
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                pic_Hinh.Image = Image.FromFile(ofd.FileName);
-                tenhinh = System.IO.Path.GetFileName(ofd.FileName);
+                string sourcePath = ofd.FileName;               // Đường dẫn gốc
+                string fileName = Path.GetFileName(sourcePath); // prev_3.jpg
+
+                // Thư mục Images trong chương trình
+                string imageFolder = Path.Combine(Application.StartupPath, "Images");
+
+                // Nếu chưa có thư mục thì tạo
+                if (!Directory.Exists(imageFolder))
+                    Directory.CreateDirectory(imageFolder);
+
+                // Đường dẫn đích
+                string destPath = Path.Combine(imageFolder, fileName);
+
+                // Copy ảnh (ghi đè nếu trùng tên)
+                File.Copy(sourcePath, destPath, true);
+
+                // Hiển thị ảnh (không khóa file)
+                using (var fs = new FileStream(destPath, FileMode.Open, FileAccess.Read))
+                {
+                    pic_Hinh.Image = Image.FromStream(fs);
+                }
+
+                pic_Hinh.SizeMode = PictureBoxSizeMode.Zoom;
+
+                // LƯU DB: Images/prev_3.jpg
+                tenhinh = fileName;
             }
         }
+
+
+        private void dgvsanpham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            LoadImageFromGrid();
+        }
+
     }
 }

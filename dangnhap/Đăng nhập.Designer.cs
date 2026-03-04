@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.lblPhuDe = new System.Windows.Forms.Label();
             this.lblTenDangNhap = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.panelFooter = new System.Windows.Forms.Panel();
             this.lblServerInfo = new System.Windows.Forms.Label();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,16 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(450, 90);
             this.panelHeader.TabIndex = 0;
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = global::Quanlybanhang.Properties.Resources.anhlogo;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(175, 10);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 70);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // lblTieuDe
             // 
@@ -205,16 +215,6 @@
             this.lblServerInfo.TabIndex = 12;
             this.lblServerInfo.Text = "DESKTOP-ACVJ7GL - quản lý bán hàng";
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Image = global::Quanlybanhang.Properties.Resources.anhlogo;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(175, 10);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 70);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,6 +241,7 @@
             this.Name = "DangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập hệ thống";
+            this.Load += new System.EventHandler(this.DangNhap_Load);
             this.panelHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);

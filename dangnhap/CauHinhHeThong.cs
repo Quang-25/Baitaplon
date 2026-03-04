@@ -13,7 +13,7 @@ namespace Quanlybanhang
 {
     public partial class CauHinhHeThong : Form
     {
-        string connectionString = @"Data Source=DESKTOP-ACW7GL;Initial Catalog=quanlybanhang;Integrated Security=True";
+        string ketnoi = @"Data Source=LAPTOP-VN022S39\SQLEXPRESS;Initial Catalog=quanlybanhang;Integrated Security=True";
 
         public CauHinhHeThong()
         {
@@ -74,6 +74,11 @@ namespace Quanlybanhang
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CauHinhHeThong_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
